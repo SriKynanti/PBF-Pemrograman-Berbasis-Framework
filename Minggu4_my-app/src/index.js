@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './App';
 import Test from './Test';
 import HelloComponent from './component/HelloComponent';
-//import Login from './Login';
+import Login from './Login';
 import Register from './Register';
 import reportWebVitals from './reportWebVitals';
+import './index.css';
+//import BlogPost from './container/BlogPost/BlogPost';
+import BlogPostMahasiswa from './container/BlogPost/BlogPostMahasiswa';
+
+//ReactDOM.render(<BlogPost />, document.getElementById('content'));
+ReactDOM.render(<BlogPostMahasiswa />, document.getElementById('content'));
 
 //const Hello = () =>{
 //  return<p>hello</p>
@@ -30,7 +37,8 @@ import reportWebVitals from './reportWebVitals';
 //ReactDOM.render(<Test />, document.getElementById('root'));
 //ReactDOM.render(<HelloComponent />, document.getElementById('root'));
 //ReactDOM.render(<Login />, document.getElementById('root'));
-ReactDOM.render(<Register />, document.getElementById('root'));
+//ReactDOM.render(<Register />, document.getElementById('root'));
+
 
 //ReactDOM.render(
 //  <React.StrictMode>
