@@ -17,13 +17,11 @@ class BlogPostMahasiswa extends Component{
     }
 
     ambilDataDariServerAPI = () => {
-        fetch('http://localhost:3002/mahasiswa?_sort=id&_order=desc')
-            .then(response => response.json())
-            .then(jsonHasilAmbilDariAPI => {
-                this.setState({
-                    listMahasiswa: jsonHasilAmbilDariAPI
-                })
+        API.getMhsBlog().then(result => {
+            this.setState({
+                listMahasiswa: result
             })
+        })
     }
     
 
@@ -49,17 +47,10 @@ class BlogPostMahasiswa extends Component{
     }
 
     handleTombolSimpan = () => {
-        fetch('http://localhost:3002/mahasiswa', {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state.insertMahasiswa)
-        })
-            .then((Response) => {
+        API.postMhsBlog(this.state.insertMahasiswa)
+            .then((response) => {
                 this.ambilDataDariServerAPI();
-            });
+            })
     }
 
     render() {
