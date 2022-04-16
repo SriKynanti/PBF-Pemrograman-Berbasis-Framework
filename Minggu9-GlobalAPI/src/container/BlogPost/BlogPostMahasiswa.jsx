@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './BlogPostMahasiswa.css';
-import PostMahasiswa from './PostMahasiswa';
+import PostMahasiswa from '../../component/PostMahasiswa';
+import API from '../../servicesMhs';
 
 class BlogPostMahasiswa extends Component{
     state = {                           //komponen untuk mengecek ketika component telah di mounting maka panggil API
@@ -30,10 +31,9 @@ class BlogPostMahasiswa extends Component{
     }
 
     handleHapusMahasiswa = (data) => {
-        fetch(`http://localhost:3002/mahasiswa/${data}`, {method: 'DELETE'})
-            .then(res => {
-                this.ambilDataDariServerAPI()
-            })
+        API.deleteMhsBlog(data).then((response) => {
+            this.ambilDataDariSeverAPI();
+        });
     }
 
     handleTambahMahasiswa = (event) => {
